@@ -61,7 +61,7 @@ int addExpressions(int firstCount, int secondCount)
         }
         else
         {
-            result[k].coeff = second[i].coeff;
+            result[k].coeff = second[j].coeff;
             result[k].exp = second[j].exp;
             j++;
             k++;
