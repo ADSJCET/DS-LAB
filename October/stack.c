@@ -1,40 +1,43 @@
 #include <stdio.h>
-// just base prototype for faster start
-int max = 20, top = -1, ITEM;
-int STACK[20];
+#define MAX 5
+int TOP = -1, ITEM;
+int STACK[MAX];
 
-int isEmpty() { return top == -1; }
-int isFull() { return top == max - 1; }
-
-void pop()
+void POP()
 {
-    if (isEmpty())
-        printf("Underflow\n");
+    if (TOP == -1)
+        printf("Stack Underflow\n");
     else
-        ITEM = STACK[top--];
+        printf("\nStack Popped: %d\n",STACK[TOP--]);
 }
 
-void push(int item)
+void PUSH()
 {
-    if (isFull())
-        printf("Overflow\n");
+    if (TOP == MAX - 1)
+        printf("Stack Overflow\n");
     else
-        STACK[++top] = item;
-}
-
-void peek()
-{
-    if (isEmpty())
-    {
-        printf("Overflow\n");
-    }
-    else
-        printf("Value at top is : %d\n", STACK[top]);
+      {    printf("\nEnter the value to PUSH: ");
+           scanf("%d",&ITEM);
+           STACK[++TOP] = ITEM;
+      }
 }
 
 int main()
-{
-    scanf("%d", &ITEM);
-    push(ITEM);
-    peek();
+      {
+      int X=0;
+      printf("Stack Options\n");
+            do {
+                  printf("\n1.PUSH\n2.POP\n3.Exit from Program\n");
+                  printf("Select any options ");
+                  scanf("%d",&X);
+                  switch (X)
+                  {
+                        case 1: PUSH();
+                                    break;
+                        case 2: POP();
+                                    break;
+                        default: break;
+                  }
+              }while (X==1 || X==2);
 }
+
