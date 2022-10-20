@@ -32,11 +32,32 @@ void dequeue(){
         F = ( F+1) % MAX;
     }
 }
-void display(){
-      int i;     
-     for (i=(F<=R?F:R); (F<=R?i<=R:i>F); (F<=R?i++:i--))
-       printf("\t %d",CQUEUE[i]);
-}
+void display()  
+{  
+    int i;
+    if(F == -1)  
+    {  
+        printf("CQueue Empty\n.");  
+	return;
+    }  
+   i = F;
+        if(F < R){
+            while(i<=R)  
+            {  
+                printf("\t %d", CQUEUE[i]);  
+                i=i+1;  
+            }
+        }
+        else{
+            while(i != R)  
+            {  
+                printf("\t %d", CQUEUE[i]);  
+                i=(i+1) % MAX;  
+            }
+            printf("\t %d", CQUEUE[i]);
+        }
+    
+}  
 int main()
       {
       int X;
