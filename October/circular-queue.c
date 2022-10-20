@@ -34,21 +34,12 @@ void dequeue(){
 }
 void display()  
 {  
-    int i;
-    if(F == -1)  
+    int i = F;
+    if(F == -1 && R == -1)  
     {  
         printf("CQueue Empty\n.");  
-	return;
     }  
-   i = F;
-        if(F < R){
-            while(i<=R)  
-            {  
-                printf("\t %d", CQUEUE[i]);  
-                i=i+1;  
-            }
-        }
-        else{
+    else{
             while(i != R)  
             {  
                 printf("\t %d", CQUEUE[i]);  
